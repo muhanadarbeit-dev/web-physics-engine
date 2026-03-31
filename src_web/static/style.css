@@ -1,0 +1,204 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #e2e8f0;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.main-container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.left-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.canvas-container {
+    flex: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px 10px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+canvas#sim-canvas {
+    width: 100%;
+    max-height: 100%;
+    aspect-ratio: 1000 / 550;
+    object-fit: contain;
+    background-color: transparent;
+    border-radius: 12px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
+}
+
+.graphs-container {
+    flex: 1;
+    display: flex;
+    gap: 20px;
+    padding: 0 20px 20px 20px;
+    min-height: 160px;
+}
+
+.graph-box {
+    flex: 1;
+    background: rgba(16, 18, 24, 0.8);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    position: relative;
+}
+.graph-title {
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #cbd5e1;
+    margin-bottom: 5px;
+}
+.graph-box canvas {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    flex: 1;
+    width: 100%;
+}
+
+
+.telemetry-overlay {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    pointer-events: none;
+    background: rgba(15, 23, 42, 0.7);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.05);
+    backdrop-filter: blur(4px);
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #94a3b8;
+}
+.telemetry-overlay span { color: #38bdf8; font-weight: bold; }
+
+.controls-panel {
+    width: 320px;
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(20px);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+}
+
+.controls-panel h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #cbd5e1;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.control-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+label { font-size: 0.9rem; color: #cbd5e1; }
+
+input[type="number"], input[type="text"] {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    color: #fff;
+    padding: 8px 10px;
+    outline: none;
+    width: 60px;
+}
+input[type="number"]:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.3);
+}
+
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.checkbox-row label {
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.btn {
+    background: linear-gradient(to right, #3b82f6, #0ea5e9);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
+}
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn-warning {
+    background: linear-gradient(to right, #f59e0b, #d97706);
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+}
+.btn-warning:hover {
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+}
+
+.btn-danger {
+    background: linear-gradient(to right, #ef4444, #f43f5e);
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+.btn-danger:hover {
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+}
